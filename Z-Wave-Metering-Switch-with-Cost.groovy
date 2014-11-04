@@ -43,7 +43,7 @@ metadata {
             state "off", label: '${name}', action: "switch.on", icon: "st.switches.switch.off", backgroundColor: "#ffffff"
         }
         valueTile("energyCost", "device.energyCost") {
-            state("default", label: '${currentValue}'//, foregroundColor: "#000000", backgroundColor:"#ffffff") //suggested by storageanarchy
+            state "default", label: '${currentValue}'//, foregroundColor: "#000000", backgroundColor:"#ffffff") //suggested by storageanarchy
         }
         valueTile("power", "device.power", decoration: "flat") {
             state "default", label:'${currentValue} W'
