@@ -1,6 +1,6 @@
 metadata {
     // Automatically generated. Make future change here.
-    definition (name: "Test Z-Wave Metering Switch", namespace: "", author: "") {
+    definition (name: "Test Z-Wave Metering Switch", author: "Joe da Silva") {
         capability "Energy Meter"
         capability "Actuator"
         capability "Switch"
