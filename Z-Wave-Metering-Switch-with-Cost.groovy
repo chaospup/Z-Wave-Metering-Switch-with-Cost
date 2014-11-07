@@ -85,7 +85,8 @@ def zwaveEvent(physicalgraph.zwave.commands.meterv1.MeterReport cmd) {
 
         if (cmd.scale == 0) {
             newValue = cmd.scaledMeterValue
-            if (newValue != state.energyValue) {       //Reference from Aeon_HEMv2.groovy by Barry A. Burke 10-07-2014 "https://github.com/SANdood/Aeon-HEM-v2"
+        }
+    else if (newValue != state.energyValue) {       //Reference from Aeon_HEMv2.groovy by Barry A. Burke 10-07-2014 "https://github.com/SANdood/Aeon-HEM-v2"
                 dispValue = String.format("%5.2f",newValue)+"\nkWh"
                 sendEvent(name: "energyDisp", value: dispValue as String, unit: "")
                 state.energyValue = newValue
@@ -93,8 +94,7 @@ def zwaveEvent(physicalgraph.zwave.commands.meterv1.MeterReport cmd) {
                 def costDisplay = String.format("%5.2f",costDecimal)
                 sendEvent(name: "energyTwo", value: "Cost\n\$${costDisplay}", unit: "")
                 [name: "energy", value: newValue, unit: "kWh"]
-            }
-        }
+    }
     else if (cmd.scale == 1) {
         [name: "energy", value: cmd.scaledMeterValue, unit: "kVAh"]
     }
